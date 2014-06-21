@@ -5,10 +5,14 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.1'
 
 # Use sqlite3 as the database for Active Record
-group :development do
+group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails', '2.9.0'
   gem 'guard-rspec', '0.5.5'
+  
+  gem 'spork-rails', '4.0.0'
+  gem 'guard-spork', '1.5.0'
+  #gem 'childprocess', '0.3.6'
 end
 
 group :test do
@@ -18,6 +22,8 @@ group :test do
   gem 'rb-fchange', '0.0.5'
   gem 'rb-notifu', '0.0.4'
   gem 'win32console', '1.3.0'
+  #gem 'guard-spork', '0.3.2'
+  #gem 'spork', '0.9.0'
 end
 
 group :assets do

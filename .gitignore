@@ -19,3 +19,6 @@
 *.pyo
 .svn
 _svn
+
+# Ignore bin folder content as I run bundle --binstubs to eliminate "bundle exec" (ZG note 2014-06-22)
+/bin

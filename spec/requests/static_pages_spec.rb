@@ -1,63 +1,33 @@
 require 'spec_helper'
 
 describe "StaticPages" do
-  
-  let(:base_title) {"Sample app"}
+    
+  subject { page }
   
   describe "Home page" do
-    it "should have the content 'Sample App'" do
-      visit '/static_pages/home'
-      page.should have_content('Sample App')
-    end
-    
-    # A title test
-    it "should have the base title" do
-      visit '/static_pages/home'
-      page.should have_selector('title', :text => "#{base_title}")
-    end
-    
-    it "should not have a custom page title" do
-      visit '/static_pages/home'
-      page.should_not have_selector('title', :text => "Home | " )
-    end
+    before { visit root_path }
+    it { should have_content('Sample App') }
+    #it { should have_selector('title', :text => "#{base_title}") }
+    it { should have_selector('title', :text => full_title('')) }
+    it { should_not have_selector('title', :text => "Home | ") }
   end
   
   describe "Help page" do
-    it "should have the content 'Help'" do
-      visit '/static_pages/help'
-      page.should have_content('Help')
-    end
-    
-    #A title test
-    it "should have the right title" do
-      visit '/static_pages/help'
-      page.should have_selector('title', :text => "Help | #{base_title}")
-    end
+    before { visit help_path }
+    it { should have_content('Help') }
+    it { should have_selector('title', :text => full_title('Help')) }
   end
   
   describe "About page" do
-    it "should have the contnet 'About Us'" do
-      visit '/static_pages/about'
-      page.should have_content('About Us')
-    end
-    
-    # A title test
-    it "should have the right title" do
-      visit '/static_pages/about'
-      page.should have_selector('title', :text => "About Us | #{base_title}")
-    end
+    before { visit about_path }
+    it { should have_content('About Us') }
+    it { should have_selector('title', text: full_title('About Us')) }
   end  
   
   describe "Contact page" do
-    it "should have the content 'Contact'" do
-      visit '/static_pages/contact'
-      page.should have_content('Contact')
-    end
-    
-    # A title test
-    it "should have the right title" do
-      visit '/static_pages/contact'
-      page.should have_selector('title', :text => "Contact | #{base_title}")
-    end
+    before { visit contact_path }
+    it { should have_content('Contact') }
+    it { should have_selector('title', text: full_title('Contact')) }
   end
+  
 end

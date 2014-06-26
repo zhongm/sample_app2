@@ -13,12 +13,15 @@ group :development, :test do
   
   gem 'spork-rails', '4.0.0'
   gem 'guard-spork', '1.5.0'
+  
+  gem 'annotate'
+  
   #gem 'childprocess', '0.3.6'
 end
 
 group :test do
   gem 'selenium-webdriver'
-  gem 'rspec-rails', '2.9.0'
+  #gem 'rspec-rails', '2.9.0'
   gem 'capybara', '1.1.2'
   gem 'rb-fchange', '0.0.5'
   gem 'rb-notifu', '0.0.4'
